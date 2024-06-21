@@ -1,3 +1,31 @@
 <div class="container">
-  <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
+  <section class="header-contaienr">
+    <p-buttonGroup>
+      <p-button icon="pi pi-chart-bar" [disabled]="this.chatType() === 'bar'" (onClick)="this.onChangeChatType()" />
+      <p-button icon="pi pi-chart-pie" [disabled]="this.chatType() === 'pie'" (onClick)="this.onChangeChatType()" />
+  </p-buttonGroup>
+  </section>
+  <section class="content">
+    @if(this.chatType() === 'pie') {
+        <p-card [style]="{'padding':'0.75rem', 'width':'50%'}">
+          <ng-template pTemplate="header">
+            <div class="card-header">
+              <i class="pi pi-chart-pie"></i>
+              <p>Todos os custos</p>
+            </div>
+          </ng-template>
+          <p-chart type="pie" [data]="basicData" [options]="basicOptions" />
+        </p-card>
+      } @else {
+        <p-card [style]="{'padding':'0.75rem'}">
+        <ng-template pTemplate="header">
+          <div class="card-header">
+            <i class="pi pi-chart-bar"></i>
+            <p>Todos os custos</p>
+          </div>
+        </ng-template>
+        <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
+      </p-card>
+      }
+  </section>
 </div>

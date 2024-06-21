@@ -1,14 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import {ButtonGroupModule} from 'primeng/buttongroup';
 
 @Component({
   selector: 'app-main-content',
   standalone: true,
-  imports: [ChartModule],
+  imports: [ChartModule, CardModule, ButtonModule, ButtonGroupModule],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
 })
 export class MainContentComponent implements OnInit {
+
+    chatType = signal<'pie' | 'bar'>('bar');
+
+    onChangeChatType() {
+        this.chatType.set(this.chatType() === 'bar' ? 'pie' : 'bar');
+    }
+
   basicData: any;
 
   basicOptions: any;

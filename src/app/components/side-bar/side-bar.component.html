@@ -7,7 +7,8 @@
         severity="success"
         size="large"
         [raised]="true"
-        [style]="{'width':'100%'}"  
+        [style]="{'width':'100%'}"
+        (onClick)="this.showModalDialog()"
         >
       </p-button >
     </li>
@@ -15,10 +16,11 @@
       <p-button 
         icon="pi pi-barcode"
         label="Despesas fixas"
-        severity="primary"
+        severity="warning"
         size="large"
         [raised]="true"
-        [style]="{'width':'100%'}"  
+        [style]="{'width':'100%'}"
+        (onClick)="this.showModalDialog()"
         >
       </p-button >
     </li>
@@ -29,9 +31,11 @@
         severity="info"
         size="large"
         [raised]="true"
-        [style]="{'width':'100%'}"  
+        [style]="{'width':'100%'}"
+        (onClick)="this.showModalDialog()"
         >
       </p-button >
     </li>
+    <app-options-modal [visible]="this.displayModal" [onHide]="this.hideModalDialog"></app-options-modal>
   </ul>
 </div>
