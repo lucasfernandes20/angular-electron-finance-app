@@ -5,12 +5,7 @@
         <h1 class="header">Welcome to the Angular 2 App</h1>
       </div>
       <aside class="aside-container block">
-        <nav>
-          <ul>
-            <li><a routerLink="/" routerLinkActive="active">Tarefas</a></li>
-            <li><a routerLink="/config" routerLinkActive="active">Configurações</a></li>
-          </ul>
-        </nav>
+        <app-side-bar></app-side-bar>
       </aside>
       <div class="main-container block">
         <router-outlet></router-outlet>
