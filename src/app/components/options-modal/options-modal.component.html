@@ -1,7 +1,18 @@
-<p-dialog header="Novo Investimento" [modal]="true" [(visible)]="visible" [style]="{ 'padding':'1rem' }" >
-  <div>
-    <h1>Qual o tipo do investimento?</h1>
-    <button pButton type="button" label="Ações" icon="pi pi-chart-bar" ></button>
-    <button pButton type="button" label="Renda Fixa" icon="pi pi-chart-line"></button>
+<p-dialog [header]="this.modalData().name" [modal]="true" [(visible)]="this.modalData().open" [style]="{ 'padding':'1rem', 'min-width': '33%' }" >
+  <div class="modal-content">
+    <h3>Tipo de {{this.modalData().name}}:</h3>
+    <p-card [style]="{'padding':'0.5rem','border':'1px solid lightgray'}">
+      <form [formGroup]="formGroup">
+        <p-listbox 
+        [options]="reactiveOptions" 
+        formControlName="selectedOption" 
+        [style]="{ width: '15rem' }" 
+        [listStyle]="{'max-height': '220px'}" />
+      </form>
+    </p-card>
   </div>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" severity="secondary" label="Deixar" icon="pi pi-chart-line" (click)="this.onHide()"></button>
+    <button pButton type="button" label="Concluir" icon="pi pi-chart-bar" ></button>
+  </ng-template>
 </p-dialog>

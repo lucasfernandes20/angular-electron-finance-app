@@ -8,7 +8,7 @@
         size="large"
         [raised]="true"
         [style]="{'width':'100%'}"
-        (onClick)="this.showModalDialog()"
+        (onClick)="this.showModalDialog(ModalType.Income)"
         >
       </p-button >
     </li>
@@ -20,7 +20,7 @@
         size="large"
         [raised]="true"
         [style]="{'width':'100%'}"
-        (onClick)="this.showModalDialog()"
+        (onClick)="showModalDialog(ModalType.Expense)"
         >
       </p-button >
     </li>
@@ -32,10 +32,10 @@
         size="large"
         [raised]="true"
         [style]="{'width':'100%'}"
-        (onClick)="this.showModalDialog()"
+        (onClick)="showModalDialog(ModalType.Investment)"
         >
       </p-button >
     </li>
-    <app-options-modal [visible]="this.displayModal" [onHide]="this.hideModalDialog"></app-options-modal>
+    <app-options-modal [modalData]="this.displayModal()" [onHide]="this.hideModalDialog"></app-options-modal>
   </ul>
 </div>
