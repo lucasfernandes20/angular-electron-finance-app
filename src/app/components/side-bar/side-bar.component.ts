@@ -43,12 +43,17 @@ export class SideBarComponent {
     }));
   }
 
-  hideModalDialog() {
+  public hideModalDialog() {
     this.displayModal.set({
       open: false,
       type: ModalType.Income,
       options: [],
       name: '',
     });
+  }
+
+  public onSelectOptions(option: string) {
+    console.log('option', option);
+    this.hideModalDialog();
   }
 }

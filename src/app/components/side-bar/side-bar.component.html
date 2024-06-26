@@ -1,41 +1,45 @@
 <div class="container">
   <ul class="add-new-menu">
     <li>
-      <p-button 
+      <p-button
         icon="pi pi-dollar"
         label="Fonte de renda"
         severity="success"
         size="large"
         [raised]="true"
-        [style]="{'width':'100%'}"
-        (onClick)="this.showModalDialog(ModalType.Income)"
-        >
-      </p-button >
+        [style]="{ width: '100%' }"
+        (onClick)="showModalDialog(ModalType.Income)"
+      >
+      </p-button>
     </li>
     <li>
-      <p-button 
+      <p-button
         icon="pi pi-barcode"
         label="Despesas fixas"
         severity="warning"
         size="large"
         [raised]="true"
-        [style]="{'width':'100%'}"
+        [style]="{ width: '100%' }"
         (onClick)="showModalDialog(ModalType.Expense)"
-        >
-      </p-button >
+      >
+      </p-button>
     </li>
     <li>
-      <p-button 
+      <p-button
         icon="pi pi-book"
         label="Investimentos"
         severity="info"
         size="large"
         [raised]="true"
-        [style]="{'width':'100%'}"
+        [style]="{ width: '100%' }"
         (onClick)="showModalDialog(ModalType.Investment)"
-        >
-      </p-button >
+      >
+      </p-button>
     </li>
-    <app-options-modal [modalData]="this.displayModal()" [onHide]="this.hideModalDialog"></app-options-modal>
+    <app-options-modal
+      [modalData]="displayModal()"
+      (onHide)="hideModalDialog()"
+      (onSelect)="onSelectOptions($event)"
+    ></app-options-modal>
   </ul>
 </div>
