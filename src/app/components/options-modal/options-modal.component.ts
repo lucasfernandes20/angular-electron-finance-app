@@ -1,10 +1,13 @@
 import { Component, OnChanges, input } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { DialogModule } from 'primeng/dialog';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ModalData } from '../side-bar/side-bar-actions-types';
+
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 import { ListboxModule } from 'primeng/listbox';
 import { CardModule } from 'primeng/card';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-options-modal',
@@ -15,6 +18,8 @@ import { CardModule } from 'primeng/card';
     ReactiveFormsModule,
     ListboxModule,
     CardModule,
+    InputGroupAddonModule,
+    InputGroupModule,
   ],
   templateUrl: './options-modal.component.html',
   styleUrl: './options-modal.component.scss',

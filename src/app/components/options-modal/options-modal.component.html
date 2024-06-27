@@ -1,16 +1,25 @@
 <p-dialog [header]="this.modalData().name" [modal]="true" [(visible)]="this.modalData().open" [style]="{ 'padding':'1rem', 'min-width': '33%' }" >
-  <div class="modal-content">
-    <h3>Tipo de {{this.modalData().name}}:</h3>
-    <p-card [style]="{'padding':'0.5rem','border':'1px solid lightgray'}">
-      <form [formGroup]="formGroup">
-        <p-listbox 
-        [options]="reactiveOptions" 
-        formControlName="selectedOption" 
-        [style]="{ width: '15rem' }" 
-        [listStyle]="{'max-height': '220px'}" />
-      </form>
-    </p-card>
-  </div>
+  <section [style]="{ padding: '2rem 0' }">
+    <div class="modal-content">
+      <h4>Tipo de {{this.modalData().name}}:</h4>
+      <p-card>
+        <form [formGroup]="formGroup">
+          <p-listbox 
+          [options]="reactiveOptions" 
+          formControlName="selectedOption" 
+          [style]="{ width: '15rem' }" 
+          [listStyle]="{'max-height': '220px'}" />
+        </form>
+      </p-card>
+    </div>
+    <div class="modal-content">
+      <p-inputGroup [style]="{'padding':'0 1rem'}">
+        <p-inputGroupAddon>R$</p-inputGroupAddon>
+        <input type="text" pInputText placeholder="Valor" />
+      </p-inputGroup>
+      <p>ola cavaleiro</p>
+    </div>
+  </section>
   <ng-template pTemplate="footer">
     <button pButton type="button" severity="secondary" label="Deixar" icon="pi pi-chart-line" (click)="this.onHide()"></button>
     <button pButton type="button" label="Concluir" icon="pi pi-chart-bar" ></button>
