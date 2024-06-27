@@ -1,27 +1,46 @@
-<p-dialog [header]="this.modalData().name" [modal]="true" [(visible)]="this.modalData().open" [style]="{ 'padding':'1rem', 'min-width': '33%' }" >
-  <section [style]="{ padding: '2rem 0' }">
-    <div class="modal-content">
-      <h4>Tipo de {{this.modalData().name}}:</h4>
-      <p-card>
-        <form [formGroup]="formGroup">
-          <p-listbox 
-          [options]="reactiveOptions" 
-          formControlName="selectedOption" 
-          [style]="{ width: '15rem' }" 
-          [listStyle]="{'max-height': '220px'}" />
-        </form>
+<p-dialog
+  [header]="this.modalData().name"
+  [modal]="true"
+  [(visible)]="this.modalData().open"
+  [style]="{ padding: '1rem', 'min-width': '33%' }"
+>
+  <div class="modal-content">
+    <form [formGroup]="formGroup" class="modal-form">
+        <p-card
+          [style]="{
+            padding: '0.5rem',
+            border: '1px solid lightgray',
+            width: '100%'
+          }"
+        >
+        <p-listbox
+          [options]="reactiveOptions"
+          formControlName="selectedOption"
+          [style]="{ 'width': '100%' }"
+          [listStyle]="{ 'max-height': '220px' }"
+        />
       </p-card>
-    </div>
-    <div class="modal-content">
-      <p-inputGroup [style]="{'padding':'0 1rem'}">
-        <p-inputGroupAddon>R$</p-inputGroupAddon>
-        <input type="text" pInputText placeholder="Valor" />
+      <p-inputGroup [style]="{ 'width': '100%' }">
+        <p-inputGroupAddon>$</p-inputGroupAddon>
+        <input type="text" pInputext placeholder="Price" formControlName="moneyQuantity" [style]="{ 'width': '100%','border':'1px solid lightgray' }" />
       </p-inputGroup>
-      <p>ola cavaleiro</p>
-    </div>
-  </section>
+    </form>
+  </div>
   <ng-template pTemplate="footer">
-    <button pButton type="button" severity="secondary" label="Deixar" icon="pi pi-chart-line" (click)="this.onHide()"></button>
-    <button pButton type="button" label="Concluir" icon="pi pi-chart-bar" ></button>
+    <button
+      pButton
+      type="button"
+      severity="secondary"
+      label="Deixar"
+      icon="pi pi-chart-line"
+      (click)="(this.onHide)"
+    ></button>
+    <button
+      pButton
+      type="button"
+      label="Concluir"
+      icon="pi pi-chart-bar"
+      (click)="onOptionSelect()"
+    ></button>
   </ng-template>
 </p-dialog>

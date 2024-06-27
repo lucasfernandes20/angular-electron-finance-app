@@ -1,5 +1,5 @@
 .container {
-  cursor: url("/images/cursor.svg"), auto;
+  cursor: url("/images/cursor.svg"), auto !important;
   height: 100%;
   width: 100%;
   display: flex;
